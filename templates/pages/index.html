@@ -1,0 +1,41 @@
+{% extends 'components/Layout/base_extendido.html' %}
+{% load static %}   
+{% load humanize %}
+
+{% block content_main %} 
+
+<div class="text-center mb-4 m-auto w-36"> 
+    <img src="{% static 'img/logo.svg' %}" alt="Logo" class="mx-auto">
+</div>
+
+<div class="space-x-4 flex justify-center">
+    <button onclick="loadVideo('{% static 'videos/login.mp4' %}')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Video 1
+    </button>
+    <button onclick="loadVideo('{% static 'videos/login.mp4' %}')" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+        Video 2
+    </button>
+    <button onclick="loadVideo('{% static 'videos/login.mp4' %}')" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+        Video 3
+    </button>
+</div>
+
+<div class="mt-8 flex justify-center">
+    <video id="video-player" class="w-11/12 h-auto border border-gray-300" controls>
+        <source id="video-source" src="#" type="video/mp4">
+        Tu navegador no soporta la etiqueta de video.
+    </video>
+</div>
+
+<script>
+    function loadVideo(videoPath) {
+        const videoSource = document.getElementById('video-source');
+        videoSource.src = videoPath;
+        const videoPlayer = document.getElementById('video-player');
+        videoPlayer.load();
+        videoPlayer.play();
+    }
+</script>
+
+{% include 'components/mensajes.html' %}
+{% endblock content_main %}

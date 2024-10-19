@@ -1,0 +1,39 @@
+<nav class="flex flex-1 flex-col">
+  <ul class="flex flex-1 flex-col gap-y-7">
+    <li>
+      <ul class="-mx-2 space-y-1">
+        <li>
+          <a href="{% url 'Home' %}" class=" group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold {% if request.path == '/' %}text-white bg-gray-800 {% else %}  text-gray-400 hover:text-white hover:bg-gray-800 {% endif %}">
+            <svg class="h-6 w-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+            </svg>
+            Inicio
+          </a>
+        </li>
+        <div class="text-xs font-semibold leading-6 text-gray-400">Tus Configuraciones</div>
+      <ul class="-mx-2 mt-2 space-y-1">
+        <li>
+          <a href="{% url 'mfa_index' %}" class="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold {% if request.path == '/accounts/2fa/' %} text-white bg-gray-800 {% else %} text-gray-400 hover:text-white hover:bg-gray-800 {% endif %}">
+            <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium {% if request.path == '/accounts/2fa/' %} border-indigo-600 {% else %}   border-gray-700 bg-gray-800 text-gray-400 group-hover:border-indigo-600 group-hover:text-white  {% endif %}">2FA</span>
+            <span class="truncate">Autentificación 2fa</span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'account_change_password' %}" class="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold {% if request.path == '/accounts/password/change/' %} text-white bg-gray-800 {% else %} text-gray-400 hover:text-white hover:bg-gray-800 {% endif %}">
+            <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium {% if request.path == '/accounts/password/change/' %} border-indigo-600 {% else %}   border-gray-700 bg-gray-800 text-gray-400 group-hover:border-indigo-600 group-hover:text-white   {% endif %}">PW</span>
+            <span class="truncate">Cambio de Contraseña</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="mt-auto">
+      <a href="{% url 'account_logout' %}" class="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-400 hover:bg-gray-800 hover:text-white">
+        <svg class="h-6 w-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />  
+          <path d="M7 12h14l-3 -3m0 6l3 -3" />
+        </svg>
+        Cerrar Seccion
+      </a>
+    </li>
+  </ul>
+</nav>
