@@ -3,9 +3,11 @@
 
 {% block content %} 
 
-  <div x-data="{ open:false }" :class="{ 'overflow-y-hidden max-h-dvh' : open }">
+
+  <div x-data="{ open:false }" :class="{ 'overflow-y-hidden max-h-dvh' : open }"> 
+  
     {% if user.is_superuser %} 
-    <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
+      <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
       <div class="relative z-50 lg:hidden" role="dialog" aria-modal="true">
         <div 
           class="fixed inset-0 bg-gray-900/80" 
@@ -60,20 +62,19 @@
     {% endif %}
 
     <div class="{% if request.user.is_superuser %}lg:pl-72{% else %}container m-auto{% endif %}">
+      {% if request.user.is_superuser %}
         <div class="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
-          {% if user.is_superuser %} 
             <button type="button" class="-m-2.5 p-2.5 text-gray-700 lg:hidden" @click="open = !open">
               <span class="sr-only">Open sidebar</span>
               <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
               </svg>
             </button>
-          {% endif %}
+          
           <!-- Separator -->
-          <a href="{% url 'account_logout' %}">Cerrar Seccion</a>
           <div class="h-6 w-px bg-gray-900/10 lg:hidden" aria-hidden="true"></div>
         </div>
-      
+      {% endif %}
       <main class="pt-7">
         <div class="px-4 sm:px-6 lg:px-8 min-w-[fill-available]">
           {% block content_main %} 

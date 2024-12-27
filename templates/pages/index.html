@@ -8,32 +8,28 @@
     <img src="{% static 'img/logo.svg' %}" alt="Logo" class="mx-auto">
 </div>
 
-<div class="space-x-4 flex justify-center">
-    <button onclick="loadVideo('{% static 'videos/login.mp4' %}')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        Video 1
+<div class="space-x-4 flex justify-center" >
+    <button onclick="loadIframe('https://www.w3schools.com/')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Página 1
     </button>
-    <button onclick="loadVideo('{% static 'videos/login.mp4' %}')" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-        Video 2
+    <button onclick="loadIframe('https://developer.mozilla.org/')" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+        Página 2
     </button>
-    <button onclick="loadVideo('{% static 'videos/login.mp4' %}')" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-        Video 3
+    <button onclick="loadIframe('https://www.python.org/')" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+        Página 3
     </button>
 </div>
 
-<div class="mt-8 flex justify-center">
-    <video id="video-player" class="w-11/12 h-auto border border-gray-300" controls>
-        <source id="video-source" src="#" type="video/mp4">
-        Tu navegador no soporta la etiqueta de video.
-    </video>
+<div id="iframe-container" class="mt-8 flex justify-center" style="display: none;margin-top: 3rem;">
+    <iframe id="iframe-content" class="w-11/12 h-auto border border-gray-300" src="" title="Contenido" style="min-height: 500px;"></iframe>
 </div>
 
 <script>
-    function loadVideo(videoPath) {
-        const videoSource = document.getElementById('video-source');
-        videoSource.src = videoPath;
-        const videoPlayer = document.getElementById('video-player');
-        videoPlayer.load();
-        videoPlayer.play();
+    function loadIframe(url) {
+        const iframeContainer = document.getElementById('iframe-container');
+        const iframe = document.getElementById('iframe-content');
+        iframe.src = url;
+        iframeContainer.style.display = 'flex';  // Mostrar el iframe
     }
 </script>
 

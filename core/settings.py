@@ -179,10 +179,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-if DEBUG:
-    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-# else: EMAIL_BACKEND = [Configuración de correo]
+ACCOUNT_EMAIL_VERIFICATION = "none"
+
+ACCOUNT_EMAIL_REQUIRED = False
 
 
 ACCOUNT_ALLOW_REGISTRATION = True
@@ -191,10 +192,8 @@ ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False
 LOGIN_REDIRECT_URL = "Home"
 
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
-ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 
-ACCOUNT_EMAIL_VERIFICATION = "optional"  # "mandatory"
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3
 
 ACCOUNT_LOGOUT_ON_GET = True
